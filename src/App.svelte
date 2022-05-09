@@ -1,6 +1,6 @@
 <script lang="ts">
   import logo from './assets/svelte.png'
-  export let appName
+  export let appName: string
 </script>
 
 <main>
