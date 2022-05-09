@@ -1,19 +1,36 @@
 <script lang="ts">
+  import { Button } from 'sveltestrap'
+
+  import ModalController from './components/UI/ModalControlled.svelte'
   import logo from './assets/svelte.png'
+
   export let appName: string
+  let open: boolean = false
+  const changeDialog = () => (open = !open)
+  //prop from children
+  let nombre: string
 </script>
 
 <main>
   <div class="container">
     <img src={logo} alt="Svelte Logo" />
-    <h1>Hello Typescript! - {appName}</h1>
+    <h1>Hello Typescript! - {appName}| {nombre}</h1>
+    <Button on:click={changeDialog} color="success">open modal</Button>
   </div>
+  <ModalController
+    title={'Example Modal'}
+    {open}
+    {changeDialog}
+    bind:victor={nombre}
+  >
+    <p>hola</p>
+  </ModalController>
 </main>
 
-<style type="text/scss" lang="scss">
+<style lang="scss">
   :root {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-      'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans',
+      'Helvetica Neue', sans-serif;
   }
 
   main {
