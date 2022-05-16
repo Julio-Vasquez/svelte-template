@@ -1,6 +1,5 @@
 <script lang="ts">
   export let message: string = ''
-  console.log(message)
 </script>
 
 <div class="loading">
